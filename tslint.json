@@ -79,7 +79,6 @@
     ],
     "no-conflicting-lifecycle": true,
     "no-duplicate-switch-case": true,
-    "no-empty-character-class": true,
     "no-empty-interface": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,
