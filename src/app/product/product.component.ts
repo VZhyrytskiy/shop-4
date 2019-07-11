@@ -25,12 +25,16 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-	  this.name = 'ng-book';
-	  this.description = 'The Complete Book on Angular';
-	  this.price = 79;
-	  this.category = Category.Programming;
-	  this.isAvailable = true;
-	  this.authors = ['Nate Murray', 'Felipe Coury', 'Ari Lerner', 'Carlos Taborda'];
+	this.name = 'ng-book';
+	this.description = 'The Complete Book on Angular';
+	this.price = 79;
+	this.category = Category.Programming;
+	this.isAvailable = true;
+	this.authors = ['Nate Murray', 'Felipe Coury', 'Ari Lerner', 'Carlos Taborda'];
+  }
+
+  public onBuy(itemName: string) {
+	  console.log(`You have bought the book ${itemName}`);
   }
 
 }
