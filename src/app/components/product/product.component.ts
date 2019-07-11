@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-enum Category {
-  Mathematics,
-  Physics,
-  Biology,
-  Literature,
-  Chemistry,
-  Programming,
-}
+import { Category } from './products.model';
 
 @Component({
   selector: 'app-product',
