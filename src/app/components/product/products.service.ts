@@ -1,35 +1,35 @@
-import { Injectable } from "@angular/core";
-import { Category, IProduct } from "./products.model";
+import { Injectable } from '@angular/core';
+import { Category, IProduct } from './products.model';
 
 const books: IProduct[] = [
 	{
-		name: "High Matrematics",
-		description: "University Book for Study",
+		name: 'High Matrematics',
+		description: 'University Book for Study',
 		price: 55,
 		category: Category.Mathematics,
 		isAvailable: false,
-		authors: ["Pontryagin"]
+		authors: ['Pontryagin'],
 	},
 	{
-		name: "School Biology",
-		description: "School Book for Study",
+		name: 'School Biology',
+		description: 'School Book for Study',
 		price: 24,
 		category: Category.Biology,
 		isAvailable: true,
-		authors: ["Ivanov", "Petrov"]
+		authors: ['Ivanov', 'Petrov'],
 	},
 	{
-		name: "Spectral Theory",
-		description: "Book for Science",
+		name: 'Spectral Theory',
+		description: 'Book for Science',
 		price: 78,
 		category: Category.Physics,
 		isAvailable: true,
-		authors: ["Sidorov"]
-	}
+		authors: ['Sidorov'],
+	},
 ];
 
 @Injectable({
-	providedIn: "root"
+	providedIn: 'root',
 })
 export class ProductsService {
 	constructor() {}

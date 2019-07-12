@@ -4,7 +4,7 @@ export enum Category {
 	Biology,
 	Literature,
 	Chemistry,
-	Programming
+	Programming,
 }
 
 export interface IProduct {
