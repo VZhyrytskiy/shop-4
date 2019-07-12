@@ -1,1 +1,24 @@
 <p>cart works!</p>
+<div *ngIf="booksInBasket.length; else elseBlock">
+  <table>
+    <thead>
+      <tr><th colspan="3">Bought Books</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+      </tr>
+      <tr *ngFor="let book of booksInBasket">
+        <td>{{book.name}}</td>
+        <td>{{book.description}}</td>
+        <td>{{book.price}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #elseBlock>
+  <p>There are no books in the basket</p>
+</ng-template>
+
