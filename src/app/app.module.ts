@@ -10,9 +10,14 @@ import { CartService } from './components/cart/cart.service';
 import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductComponent, ProductListComponent, CartComponent],
+	declarations: [
+		AppComponent,
+		ProductComponent,
+		ProductListComponent,
+		CartComponent,
+	],
 	imports: [BrowserModule, AppRoutingModule],
-  providers: [ProductsService, CartService],
-  bootstrap: [AppComponent],
-  })
-  export class AppModule {}
+	providers: [ProductsService, CartService],
+	bootstrap: [AppComponent],
+})
+export class AppModule {}
