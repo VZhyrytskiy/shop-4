@@ -1,9 +1,9 @@
 **1.** Проинсталировать [Angular-CLI](https://github.com/angular/angular-cli) и/или [AngularConsole](https://angularconsole.com)
 
-    - Просмотреть [CLI QuickStart](https://angular.io/docs/ts/latest/cli-quickstart.html)
-    - Просмотреть [Style Guide](https://angular.io/guide/styleguide)
-    - Просмотреть [СLI Commands](https://angular.io/cli)
-    - Просмотреть [Deprecation Guide](https://angular.io/guide/deprecations)
+	- Просмотреть [CLI QuickStart](https://angular.io/docs/ts/latest/cli-quickstart.html)
+	- Просмотреть [Style Guide](https://angular.io/guide/styleguide)
+	- Просмотреть [СLI Commands](https://angular.io/cli)
+	- Просмотреть [Deprecation Guide](https://angular.io/guide/deprecations)
 
 **2.** Создайте проект (`ng new shop`) и загрузите его на гитхаб без каких-либо дополнительных папок. Код можете писать для себя в отдельных бренчах. Итоговый код добавляйте в мастер и после этого отправляйте мне. В `package.json` для команды start добавьте флаг `-o`, чтобы при запуске проекта открывался браузер.
 
@@ -11,12 +11,12 @@
 
 **4.** Добавьте несколько простых свойств для компонента `ProductComponent` и несколько свойств в виде массива. Выведите их в темплейт:
 
-    - name: string
-    - description: string
-    - price: number
-    - category: enum (Создайте enum с несколькими категориями)
-    - isAvailable: boolean
-    - authors: string[]
+	- name: string
+	- description: string
+	- price: number
+	- category: enum (Создайте enum с несколькими категориями)
+	- isAvailable: boolean
+	- authors: string[]
 
 **5.** Добавьте кнопку Buy. Реализуйте обработчик события клик `onBuy()`, который выводит в консоль сообщение о покупке товара.
 
@@ -26,7 +26,7 @@
 **7.** Создайте компонент (`ng g c cart`) и используйте его в `AppComponent темплейте`. Компонент должен отображать список купленых товаров.
 Организуйте список в виде отдельного сервиса - `CartService`. Используйте директиву `*ngIf + else` для отображения корзины (`CartComponent`), если она не пустая. Если корзина пустая отображать другой альтернативный блок с сообщением о пустой корзине.
 
-**8.** todo
+**8.** Добавлены стили для кнопки. Изменен файл `.editorconfig`.
 
 **9.** Создайте файл `changelog.md` в корне проекта и описывайте в нем то, что реализовали.
 
