@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { ProductsService } from './components/product/products.service';
-import { CartService } from './components/cart/cart.service';
+// import { ProductsService } from './components/product/products.service';
+// import { CartService } from './components/cart/cart.service';
 import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
@@ -14,10 +14,10 @@ import { CartComponent } from './components/cart/cart.component';
 		AppComponent,
 		ProductComponent,
 		ProductListComponent,
-		CartComponent,
+		CartComponent
 	],
 	imports: [BrowserModule, AppRoutingModule],
-	providers: [ProductsService, CartService],
-	bootstrap: [AppComponent],
+	// providers: [ProductsService, CartService], лишнее
+	bootstrap: [AppComponent]
 })
 export class AppModule {}
