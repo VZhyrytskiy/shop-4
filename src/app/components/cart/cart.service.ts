@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Category, IProduct } from '../product/products.model';
+import { Category, IProduct } from '../product/product.model';
 
 const productsInBasket: IProduct[] = [
 	{

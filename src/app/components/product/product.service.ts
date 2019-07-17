@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Category, IProduct } from './products.model';
+import { Category, IProduct } from './product.model';
 
 const books: IProduct[] = [
 	{
@@ -31,7 +31,7 @@ const books: IProduct[] = [
 @Injectable({
 	providedIn: 'root',
 })
-export class ProductsService {
+export class ProductService {
 	constructor() {}
 
 	public getAllBooks(): IProduct[] {
