@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from './product.model';
+import { ProductService } from './product.service';
+import { Category, IProduct } from './product.model';
 
 @Component({
 	selector: 'app-product',
@@ -13,8 +14,9 @@ export class ProductComponent implements OnInit {
 	category: Category;
 	isAvailable: boolean;
 	authors: string[];
+	products: IProduct[];
 
-	constructor() {}
+	constructor(private productService: ProductService) {}
 
 	ngOnInit() {
 		this.name = 'ng-book';
@@ -28,6 +30,8 @@ export class ProductComponent implements OnInit {
 			'Ari Lerner',
 			'Carlos Taborda',
 		];
+
+		this.products = this.productService.getProducts();
 	}
 
 	public onBuy(itemName: string) {

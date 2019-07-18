@@ -9,9 +9,9 @@ import { IProduct } from '../product/product.model';
 })
 export class CartComponent implements OnInit {
 	constructor(private cartService: CartService) {}
-	booksInBasket: IProduct[];
+	productsInBasket: IProduct[];
 
 	ngOnInit() {
-		this.booksInBasket = this.cartService.getProducts();
+		this.productsInBasket = this.cartService.getProductsInBasket();
 	}
 }

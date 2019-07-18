@@ -1,5 +1,5 @@
 <p>cart works!</p>
-<div *ngIf="booksInBasket.length; else elseBlock">
+<div *ngIf="productsInBasket.length; else elseBlock">
 	<table>
 		<thead>
 			<tr>
@@ -12,10 +12,10 @@
 				<th>Description</th>
 				<th>Price</th>
 			</tr>
-			<tr *ngFor="let book of booksInBasket">
-				<td>{{ book.name }}</td>
-				<td>{{ book.description }}</td>
-				<td>{{ book.price }}</td>
+			<tr *ngFor="let product of productsInBasket">
+				<td>{{product.name}}</td>
+				<td>{{product.description}}</td>
+				<td>{{product.price}}</td>
 			</tr>
 		</tbody>
 	</table>

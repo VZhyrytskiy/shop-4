@@ -1,24 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Category, IProduct } from '../product/product.model';
+import { Category, IProduct, PRODUCTS } from '../product/product.model';
 
-const productsInBasket: IProduct[] = [
-	{
-		name: 'Matrematics for Children',
-		description: 'Children Literature',
-		price: 30,
-		category: Category.Mathematics,
-		isAvailable: true,
-		authors: ['Ignatiev', 'Nikiforov'],
-	},
-	{
-		name: 'Chemistry',
-		description: 'School Book for Study',
-		price: 40,
-		category: Category.Chemistry,
-		isAvailable: true,
-		authors: ['Petrovich', 'Sidorova'],
-	},
-];
+const productsInBasket: IProduct[] = PRODUCTS.filter(item => item.isAvailable);
 
 @Injectable({
 	providedIn: 'root',
@@ -26,7 +9,7 @@ const productsInBasket: IProduct[] = [
 export class CartService {
 	constructor() {}
 
-	public getProducts(): IProduct[] {
+	public getProductsInBasket(): IProduct[] {
 		return productsInBasket;
 	}
 }
