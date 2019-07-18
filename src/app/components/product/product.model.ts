@@ -54,7 +54,7 @@ export const PRODUCTS: IProduct[] = [
 		description: 'School Book for Study',
 		price: 40,
 		category: Category.Chemistry,
-		isAvailable: true,
+		isAvailable: false,
 		authors: ['Petrovich', 'Sidorova'],
 	},
 ];

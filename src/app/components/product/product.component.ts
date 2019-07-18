@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from './product.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Category, IProduct } from './product.model';
 
 @Component({
@@ -8,15 +7,16 @@ import { Category, IProduct } from './product.model';
 	styleUrls: ['./product.component.less'],
 })
 export class ProductComponent implements OnInit {
+	@Input() products: IProduct[];
+	@Output() notifyParent: EventEmitter<IProduct> = new EventEmitter<IProduct>();
 	name: string;
 	description: string;
 	price: number;
 	category: Category;
 	isAvailable: boolean;
 	authors: string[];
-	products: IProduct[];
 
-	constructor(private productService: ProductService) {}
+	constructor() {}
 
 	ngOnInit() {
 		this.name = 'ng-book';
@@ -30,11 +30,13 @@ export class ProductComponent implements OnInit {
 			'Ari Lerner',
 			'Carlos Taborda',
 		];
-
-		this.products = this.productService.getProducts();
 	}
 
-	public onBuy(itemName: string) {
+	public onBuy(itemName: string): void {
 		console.log(`You have bought the book ${itemName}`);
+	}
+
+	public addProduct(product: IProduct): void {
+		this.notifyParent.emit(product);
 	}
 }

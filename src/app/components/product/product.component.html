@@ -1,11 +1,11 @@
 <p>product works!</p>
 <p>This is my first book:</p>
 <ul>
-	<li>{{ name }}</li>
-	<li>{{ description }}</li>
-	<li>{{ price }}</li>
-	<li>{{ category }}</li>
-	<li>{{ isAvailable }}</li>
+	<li>{{name}}</li>
+	<li>{{description}}</li>
+	<li>{{price}}</li>
+	<li>{{category}}</li>
+	<li>{{isAvailable}}</li>
 	<li>
 		<span>Authors:</span>
 		<ol>
@@ -13,7 +13,7 @@
 		</ol>
 	</li>
 </ul>
-<button (click)="onBuy(name)">Buy</button>
+<button class="buy-button" (click)="onBuy(name)">Buy</button>
 <p>All products:</p>
 <ul>
 	<li *ngFor="let product of products">
@@ -22,5 +22,8 @@
 		<span>{{product.category}}</span>
 		<span> costs </span>
 		<span>{{product.price}}</span>
+		<button class="add-button" (click)="addProduct(product)" [class.hidden]="!product.isAvailable">
+			Add to the basket
+		</button>
 	</li>
 </ul>
