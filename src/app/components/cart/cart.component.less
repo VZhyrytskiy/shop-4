@@ -6,11 +6,17 @@ table {
 		text-align: center;
 	}
 
-	th,
-	td {
+	th, td {
 		border: 1px solid black;
-		&:last-child {
-			text-align: right;
-		}
+		padding: 5px;
+	}
+
+	td:last-child {
+		text-align: right;
+	}
+
+	tfoot {
+		background-color: aquamarine;
+		font-weight: bold;
 	}
 }

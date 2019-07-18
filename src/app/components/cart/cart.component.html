@@ -3,21 +3,31 @@
 	<table>
 		<thead>
 			<tr>
-				<th colspan="3">Bought Books</th>
+				<th colspan="4">Bought Books</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
 				<th>Name</th>
+				<th>Category</th>
 				<th>Description</th>
 				<th>Price</th>
 			</tr>
 			<tr *ngFor="let product of productsInBasket">
 				<td>{{product.name}}</td>
+				<td>{{product.category}}</td>
 				<td>{{product.description}}</td>
 				<td>{{product.price}}</td>
 			</tr>
 		</tbody>
+		<tfoot>
+			<tr>
+				<td>Amount of books:</td>
+				<td>{{productsInBasket.length}}</td>
+				<td>Total sum:</td>
+				<td>{{totalSum}}</td>
+			</tr>
+		</tfoot>
 	</table>
 </div>
 <ng-template #elseBlock>
