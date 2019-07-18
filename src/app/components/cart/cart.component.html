@@ -1,5 +1,5 @@
 <p>cart works!</p>
-<div *ngIf="productsInBasket.length; else elseBlock">
+<div *ngIf="productsInBasket && productsInBasket.length; else elseBlock">
 	<table>
 		<thead>
 			<tr>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { CartService } from './cart.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { CommunicatorService } from '../../core/services/communicator.service';
 import { IProduct } from '../product/product.model';
 
 @Component({
@@ -7,13 +8,22 @@ import { IProduct } from '../product/product.model';
 	templateUrl: './cart.component.html',
 	styleUrls: ['./cart.component.less'],
 })
-export class CartComponent implements OnInit {
-	constructor(private cartService: CartService) {}
+export class CartComponent implements OnInit, OnDestroy {
 	productsInBasket: IProduct[];
 	totalSum: number;
+	private sub: Subscription;
+
+	constructor(private communicatorService: CommunicatorService) {}
 
 	ngOnInit() {
-		this.productsInBasket = this.cartService.getProductsInBasket();
-		this.totalSum = this.productsInBasket.reduce((sum, current) => sum + current.price, 0);
+		this.sub = this.communicatorService.channel$.subscribe((data: IProduct[]) => {
+			this.productsInBasket = data;
+			this.totalSum = this.productsInBasket.reduce((sum, current) => sum + current.price, 0);
+			return this.productsInBasket;
+		});
+	}
+
+	ngOnDestroy() {
+		this.sub.unsubscribe();
 	}
 }
