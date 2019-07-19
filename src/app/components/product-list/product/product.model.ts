@@ -8,6 +8,7 @@ export enum Category {
 }
 
 export interface IProduct {
+	id: number;
 	name: string;
 	description: string;
 	price: number;
@@ -18,6 +19,7 @@ export interface IProduct {
 
 export const PRODUCTS: IProduct[] = [
 	{
+		id: 5129,
 		name: 'High Matrematics',
 		description: 'University Book for Study',
 		price: 55,
@@ -26,6 +28,7 @@ export const PRODUCTS: IProduct[] = [
 		authors: ['Pontryagin'],
 	},
 	{
+		id: 4145,
 		name: 'School Biology',
 		description: 'School Book for Study',
 		price: 24,
@@ -34,6 +37,7 @@ export const PRODUCTS: IProduct[] = [
 		authors: ['Ivanov', 'Petrov'],
 	},
 	{
+		id: 2552,
 		name: 'Spectral Theory',
 		description: 'Book for Science',
 		price: 78,
@@ -42,6 +46,7 @@ export const PRODUCTS: IProduct[] = [
 		authors: ['Sidorov'],
 	},
 	{
+		id: 9629,
 		name: 'Matrematics for Children',
 		description: 'Children Literature',
 		price: 30,
@@ -50,6 +55,7 @@ export const PRODUCTS: IProduct[] = [
 		authors: ['Ignatiev', 'Nikiforov'],
 	},
 	{
+		id: 8205,
 		name: 'Chemistry',
 		description: 'School Book for Study',
 		price: 40,
