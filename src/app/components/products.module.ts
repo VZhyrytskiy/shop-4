@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ProductComponent } from './product-list/product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 @NgModule({
 	declarations: [
 		ProductComponent,
 		ProductListComponent,
 		CartComponent,
+		CartItemComponent,
 	],
 	imports: [
 		CommonModule,
