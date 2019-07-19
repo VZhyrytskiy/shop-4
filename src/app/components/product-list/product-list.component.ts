@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit {
 		if (product.isAvailable) {
 			this.productsInBasket.push(product);
 		}
-		console.log(`onAddProductToBasket`, this.productsInBasket);
+		console.log('onAddProductToBasket', this.productsInBasket);
 	}
 
 	public onClick(): void {

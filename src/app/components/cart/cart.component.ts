@@ -26,4 +26,17 @@ export class CartComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		this.sub.unsubscribe();
 	}
+
+	public onRemoveProductFromBasket(id: number): void {
+		let productToDelete: IProduct;
+		for (const product of this.productsInBasket) {
+			if (product.id === id) {
+				productToDelete = product;
+				const index = this.productsInBasket.indexOf(productToDelete);
+				this.productsInBasket.splice(index, 1);
+				break;
+			}
+		}
+		console.log('onRemoveProductFromBasket', this.productsInBasket);
+	}
 }

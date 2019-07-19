@@ -3,17 +3,19 @@
 	<table>
 		<thead>
 			<tr>
-				<th colspan="4">Bought Books</th>
+				<th colspan="5">Bought Books</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
+				<th>Id</th>
 				<th>Name</th>
 				<th>Category</th>
 				<th>Description</th>
 				<th>Price</th>
 			</tr>
 			<tr *ngFor="let product of productsInBasket">
+				<td>{{product.id}}</td>
 				<td>{{product.name}}</td>
 				<td>{{product.category}}</td>
 				<td>{{product.description}}</td>
@@ -25,10 +27,13 @@
 				<td>Amount of books:</td>
 				<td>{{productsInBasket.length}}</td>
 				<td>Total sum:</td>
-				<td>{{totalSum}}</td>
+				<td colspan="2">{{totalSum}}</td>
 			</tr>
 		</tfoot>
 	</table>
+	<div *ngFor="let product of productsInBasket">
+		<app-cart-item [id]="product.id" (notifyParentRemoved)="onRemoveProductFromBasket($event)"></app-cart-item>
+	</div>
 </div>
 <ng-template #elseBlock>
 	<p>There are no books in the basket</p>

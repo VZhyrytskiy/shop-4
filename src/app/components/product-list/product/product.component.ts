@@ -8,7 +8,7 @@ import { Category, IProduct } from './product.model';
 })
 export class ProductComponent implements OnInit {
 	@Input() products: IProduct[];
-	@Output() notifyParent: EventEmitter<IProduct> = new EventEmitter<IProduct>();
+	@Output() notifyParentAdded: EventEmitter<IProduct> = new EventEmitter<IProduct>();
 	name: string;
 	description: string;
 	price: number;
@@ -37,6 +37,6 @@ export class ProductComponent implements OnInit {
 	}
 
 	public addProduct(product: IProduct): void {
-		this.notifyParent.emit(product);
+		this.notifyParentAdded.emit(product);
 	}
 }
