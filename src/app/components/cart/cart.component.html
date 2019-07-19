@@ -24,10 +24,10 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<td>Amount of books:</td>
-				<td>{{productsInBasket.length}}</td>
+				<td>Total amount:</td>
+				<td>{{cartService.getTotalAmount(productsInBasket)}}</td>
 				<td>Total sum:</td>
-				<td colspan="2">{{totalSum}}</td>
+				<td colspan="2">{{cartService.getTotalSum(productsInBasket)}}</td>
 			</tr>
 		</tfoot>
 	</table>

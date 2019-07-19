@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CommunicatorService } from '../../core/services/communicator.service';
+import { CartService } from '../../core/services/cart.service';
 import { IProduct } from '../product-list/product/product.model';
 
 @Component({
@@ -10,15 +11,16 @@ import { IProduct } from '../product-list/product/product.model';
 })
 export class CartComponent implements OnInit, OnDestroy {
 	productsInBasket: IProduct[];
-	totalSum: number;
 	private sub: Subscription;
 
-	constructor(private communicatorService: CommunicatorService) {}
+	constructor(
+		private communicatorService: CommunicatorService,
+		public cartService: CartService,
+	) {}
 
 	ngOnInit() {
 		this.sub = this.communicatorService.channel$.subscribe((data: IProduct[]) => {
 			this.productsInBasket = data;
-			this.totalSum = this.productsInBasket.reduce((sum, current) => sum + current.price, 0);
 			return this.productsInBasket;
 		});
 	}
