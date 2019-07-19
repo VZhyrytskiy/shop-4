@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { IProduct } from '../../components/product/product.model';
+import { IProduct } from '../../components/product-list/product/product.model';
 
 @Injectable()
 export class CommunicatorService {

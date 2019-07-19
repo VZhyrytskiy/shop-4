@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CommunicatorService } from '../../core/services/communicator.service';
-import { IProduct } from '../product/product.model';
+import { IProduct } from '../product-list/product/product.model';
 
 @Component({
 	selector: 'app-cart',
