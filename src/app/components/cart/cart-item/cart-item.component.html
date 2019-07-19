@@ -1,5 +1,5 @@
 <p>cart-item works!</p>
 <div>
-	<span appHighlight>You have added item with id={{id}}</span>
+	<span [ngClass]="id > 5000 ? 'green' : 'blue'" appHighlight>You have added item with id={{id}}</span>
 	<button (click)="removeProduct(id)">Remove from the basket</button>
 </div>
