@@ -1,4 +1,4 @@
-import { Injectable, InjectionToken } from '@angular/core';
+import { InjectionToken } from '@angular/core';
 import { GeneratorFactoryService } from './generator-factory.service';
 
 export const DATA_GEN = new InjectionToken<string>('DATA_GEN');
