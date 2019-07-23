@@ -10,8 +10,8 @@ export class LocalStorageService {
 		return localStorage.setItem(key, JSON.stringify(value));
 	}
 
-	getItem<T>(key: string): T {
-		return JSON.parse(localStorage.getItem(key)) as T;
+	getItem(key: string): any {
+		return JSON.parse(localStorage.getItem(key));
 	}
 
 	removeItem(key: string) {
