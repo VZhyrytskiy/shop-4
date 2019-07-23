@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-interface IConfig {
+export interface IConfig {
 	id: number;
 	login: string;
 	email: string;

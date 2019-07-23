@@ -6,6 +6,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { OrderSpecifierComponent } from './cart/order-specifier/order-specifier.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
 	declarations: [
@@ -14,6 +15,7 @@ import { OrderSpecifierComponent } from './cart/order-specifier/order-specifier.
 		CartComponent,
 		CartItemComponent,
 		OrderSpecifierComponent,
+		AboutComponent,
 	],
 	imports: [
 		CommonModule,
@@ -23,6 +25,7 @@ import { OrderSpecifierComponent } from './cart/order-specifier/order-specifier.
 		ProductComponent,
 		ProductListComponent,
 		CartComponent,
+		AboutComponent,
 	],
 })
 export class ProductsModule {}

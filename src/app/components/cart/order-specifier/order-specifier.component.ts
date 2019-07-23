@@ -7,7 +7,7 @@ import { DATA_GEN, generator } from '../../../core/services/generator';
 	templateUrl: './order-specifier.component.html',
 	styleUrls: ['./order-specifier.component.less'],
 	providers: [
-		// GeneratorFactoryService,
+		GeneratorFactoryService,
 		{ provide: DATA_GEN, useFactory: generator(10), deps: [GeneratorFactoryService] },
 	],
 })

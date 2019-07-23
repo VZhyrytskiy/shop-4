@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
 
+export interface IAppConstants {
+	App: string;
+	Ver: string;
+}
+
 @Injectable()
 export class ConstantsService {
 
-	appDetails: object = { App: 'BooksManager', Ver: '1.0' };
+	appDetails: IAppConstants = { App: 'BooksManager', Ver: '1.0' };
 
 	constructor() {}
 }

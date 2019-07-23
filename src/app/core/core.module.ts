@@ -4,7 +4,7 @@ import { CommunicatorService } from './services/communicator.service';
 import { LocalStorageService } from './services/local-storage.service';
 import { ConfigOptionsService } from './services/config-options.service';
 import { ConstantsService } from './services/constants.service';
-import { GeneratorFactoryService } from './services/generator-factory.service';
+// import { GeneratorFactoryService } from './services/generator-factory.service';
 
 @NgModule({
 	declarations: [],
@@ -14,7 +14,7 @@ import { GeneratorFactoryService } from './services/generator-factory.service';
 		LocalStorageService,
 		ConfigOptionsService,
 		ConstantsService,
-		GeneratorFactoryService,
+		// GeneratorFactoryService,
 	],
 })
 export class CoreModule {}

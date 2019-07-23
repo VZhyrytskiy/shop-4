@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { ConstantsService } from './core/services/constants.service';
+import { IAppConstants, ConstantsService } from './core/services/constants.service';
 
 const details = new ConstantsService();
 
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 	@ViewChild('appTitle', { static: false })
 	title: ElementRef<HTMLElement>;
 
-	appDetails: object;
+	appDetails: IAppConstants;
 
 	constructor(
 		private constantsService: ConstantsService,
