@@ -18,7 +18,7 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
 		SharedModule,
 	],
 	exports: [
-		ProductComponent,
+		ProductComponent, // этот компонент можно сделатб приватным, убрав от сюда. Он не используется в других модулях
 		ProductListComponent,
 		CartComponent,
 	],

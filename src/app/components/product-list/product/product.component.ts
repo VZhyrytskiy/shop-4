@@ -19,6 +19,7 @@ export class ProductComponent implements OnInit {
 	constructor() {}
 
 	ngOnInit() {
+		// от этого кода можно уже избавляться
 		this.name = 'ng-book';
 		this.description = 'The Complete Book on Angular';
 		this.price = 79;
