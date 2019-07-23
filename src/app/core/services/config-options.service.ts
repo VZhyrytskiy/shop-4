@@ -7,9 +7,7 @@ interface IConfig {
 	isPrivileged: boolean;
 }
 
-@Injectable({
-	providedIn: 'root',
-})
+@Injectable()
 export class ConfigOptionsService {
 	private config: Partial<IConfig> = {};
 

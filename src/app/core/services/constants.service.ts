@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-	providedIn: 'root',
-})
+@Injectable()
 export class ConstantsService {
 
 	appDetails: object = { App: 'BooksManager', Ver: '1.0' };
