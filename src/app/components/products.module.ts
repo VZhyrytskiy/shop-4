@@ -22,7 +22,6 @@ import { AboutComponent } from './about/about.component';
 		SharedModule,
 	],
 	exports: [
-		ProductComponent,
 		ProductListComponent,
 		CartComponent,
 		AboutComponent,

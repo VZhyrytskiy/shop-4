@@ -63,4 +63,13 @@ export const PRODUCTS: IProduct[] = [
 		isAvailable: false,
 		authors: ['Petrovich', 'Sidorova'],
 	},
+	{
+		id: 3914,
+		name: 'Ng-Book',
+		description: 'The Complete Book on Angular',
+		price: 80,
+		category: Category.Programming,
+		isAvailable: true,
+		authors: ['Nate Murray', 'Felipe Coury', 'Ari Lerner', 'Carlos Taborda'],
+	},
 ];

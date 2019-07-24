@@ -1,19 +1,4 @@
 <p>product works!</p>
-<p>This is my first book:</p>
-<ul>
-	<li>{{name}}</li>
-	<li>{{description}}</li>
-	<li>{{price}}</li>
-	<li>{{category}}</li>
-	<li>{{isAvailable}}</li>
-	<li>
-		<span>Authors:</span>
-		<ol>
-			<li *ngFor="let author of authors">{{ author }}</li>
-		</ol>
-	</li>
-</ul>
-<button class="buy-button" (click)="onBuy(name)">Buy</button>
 <p>All products:</p>
 <ul>
 	<li *ngFor="let product of products">
