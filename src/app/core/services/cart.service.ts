@@ -6,6 +6,7 @@ import { LocalStorageService } from './local-storage.service';
 	providedIn: 'root',
 })
 export class CartService {
+	// поля и зависимость не используются?
 	cartProducts: IProduct[];
 	totalAmount: number;
 	totalSum: number;
