@@ -12,6 +12,7 @@ export class AboutComponent implements OnInit {
 	settings: Partial<IConfig>;
 	appDetails: IAppConstants;
 	specifier: string;
+	currentDate: Date;
 
 	constructor(
 		@Optional() private configOptionsService: ConfigOptionsService,
@@ -40,5 +41,6 @@ export class AboutComponent implements OnInit {
 
 		this.specifier = this.generatorFactoryService ? this.generatorFactoryService.generate(20) :
 			'GeneratorFactoryService not found!';
+		this.currentDate = new Date();
 	}
 }

@@ -1,12 +1,12 @@
 <div class="product">
 	<div>
-		<p class="title">{{product.name}}</p>
+		<p class="title">{{product.name | uppercase}}</p>
 		<p>{{product.description}}</p>
-		<p>{{product.category}}</p>
+		<p>{{product.category | lowercase}}</p>
 		<ul *ngFor="let author of product.authors">
 			<li>{{author}}</li>
 		</ul>
-		<p class="price">Price: {{product.price}}$</p>
+		<p class="price">Price: {{product.price | currency}}</p>
 	</div>
 	<button class="add-button" (click)="addProduct(product.id)" [class.hidden]="!product.isAvailable">
 		Add to the basket

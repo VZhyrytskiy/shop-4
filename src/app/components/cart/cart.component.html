@@ -30,7 +30,7 @@
 	</div>
 	<div class="total">
 		<p>Total amount of all products is <span>{{cartService.totalAmount}}</span></p>
-		<p>Total cost of all products is <span>{{cartService.totalSum}}</span></p>
+		<p>Total cost of all products is <span>{{cartService.totalSum | currency}}</span></p>
 	</div>
 </div>
 <ng-template #elseBlock>
