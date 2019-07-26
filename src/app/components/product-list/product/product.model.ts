@@ -17,6 +17,11 @@ export interface IProduct {
 	authors: string[];
 }
 
+export interface IComplexProduct {
+	product: IProduct;
+	amount: number;
+}
+
 export const PRODUCTS: IProduct[] = [
 	{
 		id: 5129,
