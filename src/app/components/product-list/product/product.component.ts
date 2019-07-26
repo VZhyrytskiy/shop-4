@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Category, IProduct } from './product.model';
+import { IProduct } from './product.model';
 
 @Component({
 	selector: 'app-product',
@@ -7,14 +7,14 @@ import { Category, IProduct } from './product.model';
 	styleUrls: ['./product.component.less'],
 })
 export class ProductComponent implements OnInit {
-	@Input() products: IProduct[];
-	@Output() notifyParentAdded: EventEmitter<IProduct> = new EventEmitter<IProduct>();
+	@Input() product: IProduct;
+	@Output() notifyBuyProduct: EventEmitter<number> = new EventEmitter<number>();
 
 	constructor() {}
 
 	ngOnInit() {}
 
-	public addProduct(product: IProduct): void {
-		this.notifyParentAdded.emit(product);
+	public addProduct(id: number): void {
+		this.notifyBuyProduct.emit(id);
 	}
 }
