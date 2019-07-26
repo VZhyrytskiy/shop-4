@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ProductService } from '../../core/services/product.service';
-import { CommunicatorService } from '../../core/services/communicator.service';
 import { IProduct } from './product/product.model';
 
 @Component({
@@ -8,27 +8,23 @@ import { IProduct } from './product/product.model';
 	templateUrl: './product-list.component.html',
 	styleUrls: ['./product-list.component.less'],
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 	products: IProduct[];
-	productsInBasket: IProduct[] = [];
+	private sub: Subscription;
 
 	constructor(
 		private productService: ProductService,
-		private communicatorService: CommunicatorService,
 	) {}
 
 	ngOnInit() {
-		this.products = this.productService.getProducts();
+		this.sub = this.productService.getProducts().subscribe((data: IProduct[]) => {
+			this.products = data;
+			console.log(this.products);
+			return this.products;
+		});
 	}
 
-	public onAddProductToBasket(product: IProduct): void {
-		if (product.isAvailable) {
-			this.productsInBasket.push(product);
-		}
-		console.log('onAddProductToBasket', this.productsInBasket);
-	}
-
-	public onClick(): void {
-		this.communicatorService.publishData(this.productsInBasket);
+	ngOnDestroy() {
+		this.sub.unsubscribe();
 	}
 }

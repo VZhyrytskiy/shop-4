@@ -1,3 +1,4 @@
-<p>product-list works!</p>
-<app-product [products]="products" (notifyParentAdded)="onAddProductToBasket($event)"></app-product>
-<button (click)="onClick()">Pass bought products to the Cart</button>
+<div class="product-list">
+	<app-product *ngFor="let product of products" [product]="product" (notifyBuyProduct)="cartService.addProductToCart($event)"></app-product>
+</div>
+
