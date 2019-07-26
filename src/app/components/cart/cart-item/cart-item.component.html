@@ -1,8 +1,8 @@
 <div>
-	<p [ngClass]="id > 5000 ? 'green' : 'blue'" appHighlight>
-		<span>You have added product {{complexProduct.product.name}}</span>
-		<span>Total amount of this product is {{complexProduct.amount}}</span>
-		<span>Total cost is {{totalCostOfProduct}}</span>
+	<p [ngClass]="complexProduct.product.id > 5000 ? 'green' : 'blue'" appHighlight>
+		<span>You have added product {{complexProduct.product.name}};</span>
+		<span>Total amount of this product is {{complexProduct.amount}};</span>
+		<span>Total cost is {{getTotalCostOfProduct(complexProduct.product.price, complexProduct.amount)}}.</span>
 	</p>
 	<button (click)="removeProduct(complexProduct.product.id)">Remove product from the basket</button>
 </div>

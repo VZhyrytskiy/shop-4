@@ -9,12 +9,13 @@ import { IComplexProduct } from '../../product-list/product/product.model';
 export class CartItemComponent implements OnInit {
 	@Input() complexProduct: IComplexProduct;
 	@Output() notifyRemoveProduct: EventEmitter<number> = new EventEmitter<number>();
-	totalCostOfProduct: number;
 
 	constructor() {}
 
-	ngOnInit() {
-		this.totalCostOfProduct = this.complexProduct.product.price * this.complexProduct.amount;
+	ngOnInit() {}
+
+	public getTotalCostOfProduct(price: number, amount: number): number {
+		return price * amount;
 	}
 
 	public removeProduct(id: number): void {

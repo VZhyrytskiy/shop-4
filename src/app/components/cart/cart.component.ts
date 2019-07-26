@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CommunicatorService } from '../../core/services/communicator.service';
 import { CartService } from '../../core/services/cart.service';
-import { IProduct } from '../product-list/product/product.model';
+import { IProduct, IComplexProduct } from '../product-list/product/product.model';
 
 @Component({
 	selector: 'app-cart',
@@ -10,8 +10,8 @@ import { IProduct } from '../product-list/product/product.model';
 	styleUrls: ['./cart.component.less'],
 })
 export class CartComponent implements OnInit, OnDestroy {
-	productsInBasket: IProduct[];
 	private sub: Subscription;
+	input: IProduct[];
 
 	constructor(
 		private communicatorService: CommunicatorService,
@@ -19,26 +19,28 @@ export class CartComponent implements OnInit, OnDestroy {
 	) {}
 
 	ngOnInit() {
-		this.sub = this.communicatorService.channel$.subscribe((data: IProduct[]) => {
-			this.productsInBasket = data;
-			return this.productsInBasket;
-		});
+		this.sub = this.communicatorService.channel$.subscribe((data: IProduct[]) => this.input = data);
 	}
 
 	ngOnDestroy() {
 		this.sub.unsubscribe();
 	}
 
-	public onRemoveProductFromBasket(id: number): void {
-		let productToDelete: IProduct;
-		for (const product of this.productsInBasket) {
-			if (product.id === id) {
-				productToDelete = product;
-				const index = this.productsInBasket.indexOf(productToDelete);
-				this.productsInBasket.splice(index, 1);
-				break;
-			}
+	public getComplexProduct(product: IProduct): IComplexProduct {
+		return {
+			product,
+			amount: this.cartService.getAmountById(product.id),
+		};
+	}
+
+	public onRemoveProductFromCart(productId: number): void {
+		this.cartService.removeProductFromCart(productId);
+	}
+
+	public clearCart(): void {
+		const resultOfConfirm = confirm('Delete all products from the basket?');
+		if (resultOfConfirm) {
+			this.cartService.clearCart();
 		}
-		console.log('onRemoveProductFromBasket', this.productsInBasket);
 	}
 }
