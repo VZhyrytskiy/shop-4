@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { IProduct, PRODUCTS } from '../../components/product-list/product/product.model';
 
 const products: IProduct[] = PRODUCTS;
@@ -9,7 +10,7 @@ const products: IProduct[] = PRODUCTS;
 export class ProductService {
 	constructor() {}
 
-	public getProducts(): IProduct[] {
-		return products;
+	public getProducts(): Observable<IProduct[]> {
+		return of(products);
 	}
 }
