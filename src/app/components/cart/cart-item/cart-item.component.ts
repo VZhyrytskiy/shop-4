@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { IComplexProduct } from '../../product-list/product/product.model';
 
 @Component({
 	selector: 'app-cart-item',
@@ -6,14 +7,17 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 	styleUrls: ['./cart-item.component.less'],
 })
 export class CartItemComponent implements OnInit {
-	@Input() id: number;
-	@Output() notifyParentRemoved: EventEmitter<number> = new EventEmitter<number>();
+	@Input() complexProduct: IComplexProduct;
+	@Output() notifyRemoveProduct: EventEmitter<number> = new EventEmitter<number>();
+	totalCostOfProduct: number;
 
 	constructor() {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.totalCostOfProduct = this.complexProduct.product.price * this.complexProduct.amount;
+	}
 
-	public removeProduct(productId: number): void {
-		this.notifyParentRemoved.emit(productId);
+	public removeProduct(id: number): void {
+		this.notifyRemoveProduct.emit(id);
 	}
 }
