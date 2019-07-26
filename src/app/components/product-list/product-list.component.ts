@@ -4,6 +4,7 @@ import { ProductService } from '../../core/services/product.service';
 import { CommunicatorService } from '../../core/services/communicator.service';
 import { IProduct } from './product/product.model';
 import { CartService } from '../../core/services/cart.service';
+import { OrderByPipe } from '../../shared/pipes/order-by.pipe';
 
 @Component({
 	selector: 'app-product-list',
@@ -20,6 +21,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 		private productService: ProductService,
 		private communicatorService: CommunicatorService,
 		private cartService: CartService,
+		private orderBy: OrderByPipe,
 	) {}
 
 	ngOnInit() {
@@ -27,7 +29,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 		this.sub = this.products$.subscribe((data: IProduct[]) => {
 			this.products = data;
 			console.log(this.products);
-			return this.products;
+			return this.orderBy.transform(this.products, 'id', true);
 		});
 	}
 

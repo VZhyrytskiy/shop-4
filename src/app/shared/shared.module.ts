@@ -7,7 +7,7 @@ import { OrderByPipe } from './pipes/order-by.pipe';
 @NgModule({
 	declarations: [HighlightDirective, FontDirective, OrderByPipe],
 	imports: [CommonModule],
-	providers: [],
+	providers: [OrderByPipe],
 	exports: [HighlightDirective, FontDirective],
 })
 export class SharedModule {}
