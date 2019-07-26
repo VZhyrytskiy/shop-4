@@ -1,14 +1,17 @@
-<p>product works!</p>
-<p>All products:</p>
-<ul>
-	<li *ngFor="let product of products">
-		<span>{{product.name}}</span>
-		<span> with category </span>
-		<span>{{product.category}}</span>
-		<span> costs </span>
-		<span>{{product.price}}</span>
-		<button class="add-button" (click)="addProduct(product)" [class.hidden]="!product.isAvailable">
-			Add to the basket
-		</button>
-	</li>
-</ul>
+<div class="product">
+	<div>
+		<p class="title">{{product.name}}</p>
+		<p>{{product.description}}</p>
+		<p>{{product.category}}</p>
+		<ul *ngFor="let author of product.authors">
+			<li>{{author}}</li>
+		</ul>
+		<p class="price">Price: {{product.price}}$</p>
+	</div>
+	<button class="add-button" (click)="addProduct(product.id)" [class.hidden]="!product.isAvailable">
+		Add to the basket
+	</button>
+	<div *ngIf="!product.isAvailable" class="not-available">
+		<p>The product is not available</p>
+	</div>
+</div>

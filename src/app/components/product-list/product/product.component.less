@@ -4,3 +4,30 @@ button {
 		background-color: #d37f11;
 	}
 }
+
+.product {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: no-wrap;
+	align-items: center;
+	justify-content: space-between;
+	width: 200px;
+	min-height: 400px;
+	padding: 10px;
+	margin: 10px;
+	border: 3px solid #1b045a;
+	background-color: lightblue;
+
+	p {
+		text-align: center;
+
+		&.title, &.price {
+			font-weight: bold;
+			font-size: 20px;
+		}
+	}
+}
+
+.not-available {
+	color: red;
+}
