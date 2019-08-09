@@ -29,7 +29,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 		this.sub = this.products$.subscribe((data: IProduct[]) => {
 			this.products = data;
 			console.log(this.products);
-			return this.orderBy.transform(this.products, 'id', true);
+			return this.products;
 		});
 	}
 
@@ -44,5 +44,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
 	public onClick(): void {
 		this.availableProducts = this.products.filter(el => el.isAvailable);
 		this.communicatorService.publishData(this.availableProducts);
+	}
+
+	public sortProducts(field: string, asc: boolean) {
+		console.log('Sorting works!', 'field: ' + field, 'asc: ' + asc);
+		this.products = this.orderBy.transform(this.products, field, asc);
 	}
 }

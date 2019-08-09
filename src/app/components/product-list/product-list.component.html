@@ -1,6 +1,30 @@
+<div class="sorting">
+	<p>Sort Books</p>
+	<select #sortField>
+		<option value="id">Id</option>
+		<option value="name">Name</option>
+		<option value="price">Price</option>
+	</select>
+	<span>DESC</span>
+	<input
+		#sortDirection
+		type="radio"
+		name="direction"
+		checked
+	>
+	<span>ASC</span>
+	<input
+		#sortDirection
+		type="radio"
+		name="direction"
+	>
+	<button (click)="sortProducts(sortField.value, sortDirection.checked)">Sort</button>
+</div>
+
 <div class="product-list">
 	<app-product *ngFor="let product of products$ | async" [product]="product" (notifyBuyProduct)="onAddProductToCart($event)"></app-product>
 </div>
+
 <div class="refresh">
 	<button (click)="onClick()">Show available products</button>
 </div>
