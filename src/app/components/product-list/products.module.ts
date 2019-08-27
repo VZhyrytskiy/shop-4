@@ -7,6 +7,7 @@ import { CartComponent } from '../cart/cart.component';
 import { CartItemComponent } from '../cart/cart-item/cart-item.component';
 import { OrderSpecifierComponent } from '../cart/order-specifier/order-specifier.component';
 import { AboutComponent } from '../about/about.component';
+import { ProductsRoutingModule } from './products-routing.module';
 
 @NgModule({
 	declarations: [
@@ -20,6 +21,7 @@ import { AboutComponent } from '../about/about.component';
 	imports: [
 		CommonModule,
 		SharedModule,
+		ProductsRoutingModule,
 	],
 	exports: [
 		ProductListComponent,
