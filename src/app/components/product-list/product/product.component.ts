@@ -9,6 +9,7 @@ import { IProduct } from './product.model';
 export class ProductComponent implements OnInit {
 	@Input() product: IProduct;
 	@Output() notifyBuyProduct: EventEmitter<number> = new EventEmitter<number>();
+	@Output() notifyShowProductReview: EventEmitter<number> = new EventEmitter<number>();
 
 	constructor() {}
 
@@ -18,5 +19,7 @@ export class ProductComponent implements OnInit {
 		this.notifyBuyProduct.emit(id);
 	}
 
-	public showReview(id: number): void {}
+	public showProductReview(id: number): void {
+		this.notifyShowProductReview.emit(id);
+	}
 }

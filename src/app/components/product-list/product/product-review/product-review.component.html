@@ -1,1 +1,6 @@
-<p>product-review works!</p>
+<p>Review for the book with id=<span>{{productId}}</span></p>
+<p *ngIf="product">The book review is here. This is the <span>{{product.description}}</span> with the category <span>{{product.category}}.</span></p>
+<ng-container *ngIf="!product">
+	<p>The product with such <span>id</span> is not found.</p>
+</ng-container>
+<button (click)="onGoBack()">Back</button>

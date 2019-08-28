@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 import { ProductService } from '../../core/services/product.service';
 import { CommunicatorService } from '../../core/services/communicator.service';
 import { IProduct } from './product/product.model';
@@ -18,6 +19,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 	private sub: Subscription;
 
 	constructor(
+		private router: Router,
 		private productService: ProductService,
 		private communicatorService: CommunicatorService,
 		private cartService: CartService,
@@ -39,6 +41,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
 	public onAddProductToCart(productId: number): void {
 		this.cartService.addProductToCart(productId);
+	}
+
+	public onShowProductReview(productId: number): void {
+		const link = ['/product', productId];
+		this.router.navigate(link);
 	}
 
 	public onClick(): void {
