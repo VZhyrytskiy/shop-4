@@ -12,16 +12,12 @@ const routes: Routes = [
 		component: AboutComponent,
 	},
 	{
-		path: 'products',
-		component: ProductListComponent,
-	},
-	{
 		path: 'cart',
 		component: CartComponent,
 	},
 	{
 		path: '',
-		redirectTo: '/about',
+		redirectTo: '/home',
 		pathMatch: 'full',
 	},
 	{
