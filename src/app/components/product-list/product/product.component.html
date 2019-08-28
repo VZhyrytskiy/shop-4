@@ -14,4 +14,7 @@
 	<div *ngIf="!product.isAvailable" class="not-available">
 		<p>The product is not available</p>
 	</div>
+	<button class="review-button" (click)="showReview(product.id)">
+		Show review
+	</button>
 </div>

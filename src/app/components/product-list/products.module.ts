@@ -8,6 +8,7 @@ import { CartItemComponent } from '../cart/cart-item/cart-item.component';
 import { OrderSpecifierComponent } from '../cart/order-specifier/order-specifier.component';
 import { AboutComponent } from '../about/about.component';
 import { ProductsRoutingModule } from './products-routing.module';
+import { ProductReviewComponent } from './product/product-review/product-review.component';
 
 @NgModule({
 	declarations: [
@@ -17,6 +18,7 @@ import { ProductsRoutingModule } from './products-routing.module';
 		CartItemComponent,
 		OrderSpecifierComponent,
 		AboutComponent,
+		ProductReviewComponent,
 	],
 	imports: [
 		CommonModule,

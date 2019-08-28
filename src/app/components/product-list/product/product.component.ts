@@ -17,4 +17,6 @@ export class ProductComponent implements OnInit {
 	public addProduct(id: number): void {
 		this.notifyBuyProduct.emit(id);
 	}
+
+	public showReview(id: number): void {}
 }
