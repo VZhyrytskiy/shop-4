@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AboutComponent } from './components/about/about.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 import { PathNotFoundComponent } from './shared/components/path-not-found/path-not-found.component';
 
 const routes: Routes = [
@@ -14,6 +14,11 @@ const routes: Routes = [
 	{
 		path: 'cart',
 		component: CartComponent,
+	},
+	{
+		path: 'reviews',
+		component: ReviewsComponent,
+		outlet: 'reviews',
 	},
 	{
 		path: '',

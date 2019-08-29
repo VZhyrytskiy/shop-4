@@ -9,6 +9,7 @@ import { OrderSpecifierComponent } from '../cart/order-specifier/order-specifier
 import { AboutComponent } from '../about/about.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductReviewComponent } from './product/product-review/product-review.component';
+import { ReviewsComponent } from '../reviews/reviews.component';
 
 @NgModule({
 	declarations: [
@@ -19,6 +20,7 @@ import { ProductReviewComponent } from './product/product-review/product-review.
 		OrderSpecifierComponent,
 		AboutComponent,
 		ProductReviewComponent,
+		ReviewsComponent,
 	],
 	imports: [
 		CommonModule,

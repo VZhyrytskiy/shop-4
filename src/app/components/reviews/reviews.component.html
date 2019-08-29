@@ -1,0 +1,7 @@
+<div class="reviews-title">
+	<h3>Reviews Log</h3>
+	<button (click)="onClose()">Close</button>
+</div>
+<div *ngFor="let review of reviews" class="review-row">
+	{{review}}
+</div>
