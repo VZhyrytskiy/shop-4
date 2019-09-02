@@ -26,6 +26,7 @@ export class ProductReviewComponent implements OnInit {
 				return this.productService.getProducts();
 			}),
 		).subscribe(
+			// можно воспользоваться find
 			products => (this.product = products.filter(item => item.id === this.productId)[0]),
 			err => console.log(err),
 		);
