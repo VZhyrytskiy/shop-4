@@ -10,11 +10,13 @@ import { AboutComponent } from '../about/about.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductReviewComponent } from './product/product-review/product-review.component';
 import { ReviewsComponent } from '../reviews/reviews.component';
+import { ProductsComponent } from './products.component';
 
 @NgModule({
 	declarations: [
 		ProductComponent,
 		ProductListComponent,
+		ProductsComponent,
 		CartComponent,
 		CartItemComponent,
 		OrderSpecifierComponent,
@@ -29,6 +31,7 @@ import { ReviewsComponent } from '../reviews/reviews.component';
 	],
 	exports: [
 		ProductListComponent,
+		ProductsComponent,
 		CartComponent,
 		AboutComponent,
 	],

@@ -32,6 +32,6 @@ export class ProductReviewComponent implements OnInit {
 	}
 
 	onGoBack(): void {
-		this.router.navigate(['/home']);
+		this.router.navigate(['/home'], { relativeTo: this.route });
 	}
 }

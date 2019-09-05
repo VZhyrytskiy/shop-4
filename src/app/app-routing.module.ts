@@ -4,9 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 import { PathNotFoundComponent } from './shared/components/path-not-found/path-not-found.component';
 
 const routes: Routes = [
+	{
+		path: 'home',
+		component: ProductListComponent,
+	},
 	{
 		path: 'about',
 		component: AboutComponent,

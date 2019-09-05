@@ -44,7 +44,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 	}
 
 	public onShowProductReview(productId: number): void {
-		const link = ['/product', productId];
+		const link = ['/products/product', productId];
 		this.router.navigate(link);
 	}
 
