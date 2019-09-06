@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './components/product-list/products.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
 	declarations: [
@@ -15,6 +16,7 @@ import { ProductsModule } from './components/product-list/products.module';
 		BrowserModule,
 		CoreModule,
 		SharedModule,
+		AdminModule,
 		ProductsModule,
 		AppRoutingModule, // MUST BE LAST
 	],
