@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { AboutComponent } from './components/about/about.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { PathNotFoundComponent } from './shared/components/path-not-found/path-not-found.component';
+import { LoginComponent } from './shared/components/login/login.component';
 
 const routes: Routes = [
 	{
@@ -24,6 +24,10 @@ const routes: Routes = [
 		path: 'reviews',
 		component: ReviewsComponent,
 		outlet: 'reviews',
+	},
+	{
+		path: 'login',
+		component: LoginComponent,
 	},
 	{
 		path: '',
