@@ -1,8 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { ProductService } from 'src/app/core/services/product.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from '../product.model';
 
 @Component({
@@ -10,31 +7,35 @@ import { IProduct } from '../product.model';
 	templateUrl: './product-review.component.html',
 	styleUrls: ['./product-review.component.less'],
 })
-export class ProductReviewComponent implements OnInit, OnDestroy {
+export class ProductReviewComponent implements OnInit {
 	productId: number;
 	product: IProduct;
-	private sub: Subscription;
 
 	constructor(
 		private route: ActivatedRoute,
 		private router: Router,
-		private productService: ProductService,
 	) {}
 
 	ngOnInit() {
-		this.sub = this.route.paramMap.pipe(
-			switchMap((params: ParamMap) => {
-				this.productId = +params.get('productID');
-				return this.productService.getProducts();
-			}),
-		).subscribe(
-			products => (this.product = products.find(item => item.id === this.productId)),
-			err => console.log(err),
-		);
-	}
+		this.route.data.subscribe(data => console.log(data));
 
-	ngOnDestroy() {
-		this.sub.unsubscribe();
+		this.route.data.subscribe(data => {
+			this.product = data.product;
+		});
+
+		this.route.paramMap.subscribe(data => {
+			this.productId = +data.get('productID');
+		});
+
+		// this.route.paramMap.pipe(
+		// 	switchMap((params: ParamMap) => {
+		// 		this.productId = +params.get('productID');
+		// 		return this.productService.getProducts();
+		// 	}),
+		// ).subscribe(
+		// 	products => (this.product = products.find(item => item.id === this.productId)),
+		// 	err => console.log(err),
+		// );
 	}
 
 	onGoBack(): void {
