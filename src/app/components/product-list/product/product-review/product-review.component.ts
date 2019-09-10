@@ -21,7 +21,10 @@ export class ProductReviewComponent implements OnInit {
 
 		this.route.data.subscribe(data => {
 			this.product = data.product;
-			this.productId = this.product.id;
+		});
+
+		this.route.paramMap.subscribe(data => {
+			this.productId = +data.get('productID');
 		});
 
 		// this.route.paramMap.pipe(
