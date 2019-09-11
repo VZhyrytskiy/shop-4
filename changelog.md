@@ -115,3 +115,13 @@
 **38.** Реализована `Admin Feature Area` и защищена с помощью `canActivate Guard`.
 
 **39.** Применен `Resolve Guard` для получения отзыва о конкретном товаре.
+
+**40.** Реализован бекэнд для проекта с использованием `json-server`.
+
+**41.** Созданы сервисы `ProductPromiseService` и `ProductObservableService` для работы с `HttpClient`.
+
+**42.** Применен `ProductPromiseService` при получении данных в `ProductListComponent` и `CartService`.
+
+**43.** Применен `ProductObservableService` при получении данных в `ReviewsComponent` и `ProductResolveGuard`.
+
+**44.** Реализован `TimingInterceptor`, который выводит в консоль длительность запросов, содержащих `products` в урле.
