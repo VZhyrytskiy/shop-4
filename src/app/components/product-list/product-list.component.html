@@ -22,7 +22,7 @@
 </div>
 
 <div class="product-list">
-	<app-product *ngFor="let product of products$ | async"
+	<app-product *ngFor="let product of products"
 		[product]="product"
 		(notifyBuyProduct)="onAddProductToCart($event)"
 		(notifyShowProductReview)="onShowProductReview($event)"

@@ -1,42 +1,35 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductService } from '../../core/services/product.service';
 import { CommunicatorService } from '../../core/services/communicator.service';
 import { IProduct } from './product/product.model';
 import { CartService } from '../../core/services/cart.service';
 import { OrderByPipe } from '../../shared/pipes/order-by.pipe';
+import { ProductPromiseService } from '../../core/services/product-promise.service';
 
 @Component({
 	selector: 'app-product-list',
 	templateUrl: './product-list.component.html',
 	styleUrls: ['./product-list.component.less'],
 })
-export class ProductListComponent implements OnInit, OnDestroy {
+export class ProductListComponent implements OnInit {
 	products: IProduct[];
-	products$: Observable<IProduct[]>;
 	availableProducts: IProduct[] = [];
-	private sub: Subscription;
 
 	constructor(
 		private router: Router,
-		private productService: ProductService,
+		private productPromiseService: ProductPromiseService,
 		private communicatorService: CommunicatorService,
 		private cartService: CartService,
 		private orderBy: OrderByPipe,
 	) {}
 
 	ngOnInit() {
-		this.products$ = this.productService.getProducts();
-		this.sub = this.products$.subscribe((data: IProduct[]) => {
-			this.products = data;
-			console.log(this.products);
-			return this.products;
-		});
-	}
-
-	ngOnDestroy() {
-		this.sub.unsubscribe();
+		this.productPromiseService.getProducts()
+			.then((data: IProduct[]) => {
+				this.products = data;
+				console.log(this.products);
+				return this.products;
+			});
 	}
 
 	public onAddProductToCart(productId: number): void {
