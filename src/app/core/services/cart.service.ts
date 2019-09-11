@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from '../../components/product-list/product/product.model';
-import { ProductService } from './product.service';
+import { ProductPromiseService } from './product-promise.service';
 import { LocalStorageService } from './local-storage.service';
 import { Subscription } from 'rxjs';
 
@@ -13,10 +13,8 @@ export class CartService {
 	totalAmount: number;
 	totalSum: number;
 
-	private sub: Subscription;
-
 	constructor(
-		private productService: ProductService,
+		private productPromiseService: ProductPromiseService,
 		private localStorageService: LocalStorageService,
 	) {
 		this.idsOfCartProducts = this.localStorageService.getItem('productsIds') || [];
@@ -49,10 +47,7 @@ export class CartService {
 	}
 
 	private updateCart(): void {
-		if (this.sub) {
-			this.sub.unsubscribe();
-		}
-		this.sub = this.productService.getProducts().subscribe((data: IProduct[]) => {
+		this.productPromiseService.getProducts().then((data: IProduct[]) => {
 			this.cartProducts = data.filter(product => this.idsOfCartProducts.indexOf(product.id) > -1);
 			this.totalAmount = this.cartProducts.reduce((sum, current) => sum + this.getAmountById(current.id), 0);
 			this.totalSum = this.cartProducts.reduce((sum, current) => sum + current.price * this.getAmountById(current.id), 0);

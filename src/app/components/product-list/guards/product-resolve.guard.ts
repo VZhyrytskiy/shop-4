@@ -3,12 +3,10 @@ import {
 	Router,
 	Resolve,
 	ActivatedRouteSnapshot,
-	RouterStateSnapshot,
-	UrlTree
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { IProduct, Category } from '../product/product.model';
-import { ProductService } from 'src/app/core/services/product.service';
+import { ProductObservableService } from 'src/app/core/services/product-observable.service';
 import { map, catchError, take } from 'rxjs/operators';
 
 @Injectable({
@@ -16,7 +14,7 @@ import { map, catchError, take } from 'rxjs/operators';
 })
 export class ProductResolveGuard implements Resolve<IProduct | null> {
 	constructor(
-		private productService: ProductService,
+		private productObservableService: ProductObservableService,
 		private router: Router,
 	) {}
 
@@ -38,7 +36,7 @@ export class ProductResolveGuard implements Resolve<IProduct | null> {
 
 		const id = +route.paramMap.get('productID');
 
-		return this.productService.getProducts().pipe(
+		return this.productObservableService.getProducts().pipe(
 			map((products: IProduct[]) => {
 				if (products) {
 					return products.find(item => item.id === id);
