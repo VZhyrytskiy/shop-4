@@ -1,0 +1,31 @@
+{
+	"products": [
+		{
+			"id": 5129,
+			"name": "High Matrematics",
+			"description": "University Book for Study",
+			"price": 55,
+			"category": "MATHEMATICS",
+			"isAvailable": false,
+			"authors": ["Pontryagin"]
+		},
+		{
+			"id": 4145,
+			"name": "School Biology",
+			"description": "School Book for Study",
+			"price": 24,
+			"category": "BIOLOGY",
+			"isAvailable": true,
+			"authors": ["Ivanov", "Petrov"]
+		},
+		{
+			"id": 2552,
+			"name": "Spectral Theory",
+			"description": "Book for Science",
+			"price": 78,
+			"category": "PHYSICS",
+			"isAvailable": true,
+			"authors": ["Sidorov"]
+		}
+	]
+}
