@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './components/product-list/products.module';
 import { AdminModule } from './admin/admin.module';
+import { ProductsAPIProvider } from './components/product-list/products.config';
 
 @NgModule({
 	declarations: [
@@ -22,7 +23,7 @@ import { AdminModule } from './admin/admin.module';
 		ProductsModule,
 		AppRoutingModule, // MUST BE LAST
 	],
-	providers: [],
+	providers: [ProductsAPIProvider],
 	bootstrap: [AppComponent],
 })
 export class AppModule {

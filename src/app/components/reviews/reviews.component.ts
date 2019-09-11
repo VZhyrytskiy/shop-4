@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReviewsService } from 'src/app/core/services/reviews.service';
-import { ProductService } from 'src/app/core/services/product.service';
 import { IProduct } from '../product-list/product/product.model';
+import { ProductObservableService } from 'src/app/core/services/product-observable.service';
 
 @Component({
 	selector: 'app-reviews',
@@ -14,12 +14,12 @@ export class ReviewsComponent implements OnInit {
 
 	constructor(
 		public reviewsService: ReviewsService,
-		private productService: ProductService,
+		private productObservableService: ProductObservableService,
 		private router: Router,
 	) {}
 
 	ngOnInit() {
-		this.productService.getProducts().subscribe((products: IProduct[]) => {
+		this.productObservableService.getProducts().subscribe((products: IProduct[]) => {
 			products.forEach(product => this.reviews.push(`This is the ${product.description} with the category ${product.category}`));
 		});
 	}
