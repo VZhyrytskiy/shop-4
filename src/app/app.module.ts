@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './components/product-list/products.module';
 import { AdminModule } from './admin/admin.module';
 import { ProductsAPIProvider } from './components/product-list/products.config';
+import { httpInterceptorProviders } from './core/interceptors';
 
 @NgModule({
 	declarations: [
@@ -23,7 +24,10 @@ import { ProductsAPIProvider } from './components/product-list/products.config';
 		ProductsModule,
 		AppRoutingModule, // MUST BE LAST
 	],
-	providers: [ProductsAPIProvider],
+	providers: [
+		ProductsAPIProvider,
+		httpInterceptorProviders,
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {
