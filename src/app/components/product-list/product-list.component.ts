@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { CommunicatorService } from '../../core/services/communicator.service';
 import { IProduct } from './product/product.model';
 import { CartService } from '../../core/services/cart.service';
 import { OrderByPipe } from '../../shared/pipes/order-by.pipe';
 import { ProductPromiseService } from '../../core/services/product-promise.service';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/core/@ngrx';
+import { Store, select } from '@ngrx/store';
+import { AppState, ProductsState } from 'src/app/core/@ngrx';
 
 @Component({
 	selector: 'app-product-list',
@@ -16,6 +17,7 @@ import { AppState } from 'src/app/core/@ngrx';
 export class ProductListComponent implements OnInit {
 	products: IProduct[];
 	availableProducts: IProduct[] = [];
+	productsState$: Observable<ProductsState>;
 
 	constructor(
 		private router: Router,
@@ -28,6 +30,7 @@ export class ProductListComponent implements OnInit {
 
 	ngOnInit() {
 		console.log('We have a store!!!', this.store);
+		this.productsState$ = this.store.pipe(select('products'));
 		this.productPromiseService.getProducts()
 			.then((data: IProduct[]) => {
 				this.products = data;
