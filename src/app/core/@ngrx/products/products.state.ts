@@ -4,7 +4,7 @@ export interface ProductsState {
 	data: ReadonlyArray<IProduct>;
 }
 
-export const initialTasksState: ProductsState = {
+export const initialProductsState: ProductsState = {
 	data: [
 		{
 			id: 5129,
