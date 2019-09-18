@@ -5,6 +5,8 @@ import { IProduct } from './product/product.model';
 import { CartService } from '../../core/services/cart.service';
 import { OrderByPipe } from '../../shared/pipes/order-by.pipe';
 import { ProductPromiseService } from '../../core/services/product-promise.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/core/@ngrx';
 
 @Component({
 	selector: 'app-product-list',
@@ -21,9 +23,11 @@ export class ProductListComponent implements OnInit {
 		private communicatorService: CommunicatorService,
 		private cartService: CartService,
 		private orderBy: OrderByPipe,
+		private store: Store<AppState>,
 	) {}
 
 	ngOnInit() {
+		console.log('We have a store!!!', this.store);
 		this.productPromiseService.getProducts()
 			.then((data: IProduct[]) => {
 				this.products = data;
