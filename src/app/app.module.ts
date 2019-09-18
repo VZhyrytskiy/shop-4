@@ -10,6 +10,7 @@ import { ProductsModule } from './components/product-list/products.module';
 import { AdminModule } from './admin/admin.module';
 import { ProductsAPIProvider } from './components/product-list/products.config';
 import { httpInterceptorProviders } from './core/interceptors';
+import { RootStoreModule } from './core/@ngrx/root-store.module';
 
 @NgModule({
 	declarations: [
@@ -22,6 +23,7 @@ import { httpInterceptorProviders } from './core/interceptors';
 		SharedModule,
 		AdminModule,
 		ProductsModule,
+		RootStoreModule,
 		AppRoutingModule, // MUST BE LAST
 	],
 	providers: [
