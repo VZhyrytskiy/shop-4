@@ -4,10 +4,11 @@ import { Router } from '@angular/router';
 import { CommunicatorService } from '../../core/services/communicator.service';
 import { IProduct } from './product/product.model';
 import { CartService } from '../../core/services/cart.service';
-import { OrderByPipe } from '../../shared/pipes/order-by.pipe';
+// import { OrderByPipe } from '../../shared/pipes/order-by.pipe';
 import { ProductPromiseService } from '../../core/services/product-promise.service';
 import { Store, select } from '@ngrx/store';
 import { AppState, ProductsState } from 'src/app/core/@ngrx';
+import * as ProductsActions from 'src/app/core/@ngrx/products/products.actions';
 
 @Component({
 	selector: 'app-product-list',
@@ -24,13 +25,14 @@ export class ProductListComponent implements OnInit {
 		private productPromiseService: ProductPromiseService,
 		private communicatorService: CommunicatorService,
 		private cartService: CartService,
-		private orderBy: OrderByPipe,
+		// private orderBy: OrderByPipe,
 		private store: Store<AppState>,
 	) {}
 
 	ngOnInit() {
 		console.log('We have a store!!!', this.store);
 		this.productsState$ = this.store.pipe(select('products'));
+		this.store.dispatch(ProductsActions.getProducts());
 		this.productPromiseService.getProducts()
 			.then((data: IProduct[]) => {
 				this.products = data;
@@ -49,12 +51,13 @@ export class ProductListComponent implements OnInit {
 	}
 
 	public onClick(): void {
-		this.availableProducts = this.products.filter(el => el.isAvailable);
+		this.store.dispatch(ProductsActions.getAvailableProducts());
 		this.communicatorService.publishData(this.availableProducts);
 	}
 
-	public sortProducts(field: string, asc: boolean) {
-		console.log('Sorting works!', 'field: ' + field, 'asc: ' + asc);
-		this.products = this.orderBy.transform(this.products, field, asc);
+	public sortProducts(field: string, asc: boolean = false) {
+		// console.log('Sorting works!', 'field: ' + field, 'asc: ' + asc);
+		// this.products = this.orderBy.transform(this.products, field, asc);
+		this.store.dispatch(ProductsActions.sortProducts({ field, asc }));
 	}
 }
