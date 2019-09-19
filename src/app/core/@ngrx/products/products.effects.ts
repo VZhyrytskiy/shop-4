@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as ProductsActions from './products.actions';
 
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, pluck } from 'rxjs/operators';
 import { ProductPromiseService } from '../../services/product-promise.service';
 
 @Injectable()
@@ -24,6 +24,19 @@ export class ProductsEffects {
 					.getProducts()
 					.then(products => ProductsActions.getProductsSuccess({ products }))
 					.catch(error => ProductsActions.getProductsError({ error })),
+			),
+		),
+	);
+
+	getProduct$: Observable<Action> = createEffect(() =>
+		this.actions$.pipe(
+			ofType(ProductsActions.getProduct),
+			pluck('productID'),
+			switchMap(productID =>
+				this.productPromiseService
+					.getProduct(productID)
+					.then(product => ProductsActions.getProductSuccess({ product }))
+					.catch(error => ProductsActions.getProductError({ error })),
 			),
 		),
 	);

@@ -18,6 +18,15 @@ export class ProductPromiseService {
 			.catch(this.handleError);
 	}
 
+	public getProduct(id: number): Promise<IProduct> {
+		const url = `${this.productsUrl}/${id}`;
+		return this.http
+			.get(url)
+			.toPromise()
+			.then(response => response as IProduct)
+			.catch(this.handleError);
+	}
+
 	private handleError(error: any): Promise<any> {
 		console.error('An error occurred', error);
 		return Promise.reject(error.message || error);		// error for the caller

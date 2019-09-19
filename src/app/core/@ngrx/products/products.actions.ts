@@ -13,6 +13,21 @@ export const getProductsError = createAction(
 	props<{ error: Error | string }>(),
 );
 
+export const getProduct = createAction(
+	'[Product Review] GET_PRODUCT',
+	props<{ productID: number }>(),
+);
+
+export const getProductSuccess = createAction(
+	'[Products Effects] GET_PRODUCT_SUCCESS',
+	props<{ product: IProduct }>(),
+);
+
+export const getProductError = createAction(
+	'[Products Effects] GET_PRODUCT_ERROR',
+	props<{ error: Error | string }>(),
+);
+
 export const getAvailableProducts = createAction('[Product List] GET_AVAILABLE_PRODUCTS');
 
 export const sortProducts = createAction(
