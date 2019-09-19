@@ -21,6 +21,8 @@
 	<button (click)="sortProducts(sortField.value, sortDirection.checked)">Sort</button>
 </div>
 
+<p *ngIf="(productsState$ | async).error as value">{{value}}</p>
+
 <div class="product-list">
 	<app-product *ngFor="let product of (productsState$ | async).data"
 		[product]="product"

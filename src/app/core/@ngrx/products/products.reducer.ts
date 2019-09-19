@@ -6,15 +6,43 @@ export const productsFeatureKey = 'products';
 
 const reducer = createReducer(
 	initialProductsState,
+
 	on(ProductsActions.getProducts, state => {
 		console.log('GET_PRODUCTS action being handled!');
-		return { ...state };
+		return {
+			...state,
+			loading: true,
+		};
 	}),
+
+	on(ProductsActions.getProductsSuccess, (state, props) => {
+		console.log('GET_PRODUCTS_SUCCESS action being handled!');
+		const data = [...props.products];
+		return {
+			...state,
+			data,
+			loading: false,
+			loaded: true,
+		};
+	}),
+
+	on(ProductsActions.getProductsError, (state, props) => {
+		console.log('GET_PRODUCTS_ERROR action being handled!');
+		const error = props.error;
+		return {
+			...state,
+			loading: false,
+			loaded: false,
+			error,
+		};
+	}),
+
 	on(ProductsActions.getAvailableProducts, state => {
 		console.log('GET_AVAILABLE_PRODUCTS action being handled!');
 		const data = state.data.filter(t => t.isAvailable);
 		return { ...state, data };
 	}),
+
 	on(ProductsActions.sortProducts, (state, props) => {
 		console.log('SORT_PRODUCTS action being handled!', 'field: ' + props.field, 'asc: ' + props.asc);
 		const data = [ ...state.data ];
@@ -30,6 +58,7 @@ const reducer = createReducer(
 		});
 		return { ...state, data };
 	}),
+
 	on(ProductsActions.removeAllProducts, state => {
 		console.log('REMOVE_ALL_PRODUCTS action being handled!');
 		const data = [];

@@ -5,7 +5,7 @@ import { CommunicatorService } from '../../core/services/communicator.service';
 import { IProduct } from './product/product.model';
 import { CartService } from '../../core/services/cart.service';
 // import { OrderByPipe } from '../../shared/pipes/order-by.pipe';
-import { ProductPromiseService } from '../../core/services/product-promise.service';
+// import { ProductPromiseService } from '../../core/services/product-promise.service';
 import { Store, select } from '@ngrx/store';
 import { AppState, ProductsState } from 'src/app/core/@ngrx';
 import * as ProductsActions from 'src/app/core/@ngrx/products/products.actions';
@@ -22,7 +22,7 @@ export class ProductListComponent implements OnInit {
 
 	constructor(
 		private router: Router,
-		private productPromiseService: ProductPromiseService,
+		// private productPromiseService: ProductPromiseService,
 		private communicatorService: CommunicatorService,
 		private cartService: CartService,
 		// private orderBy: OrderByPipe,
@@ -33,12 +33,12 @@ export class ProductListComponent implements OnInit {
 		console.log('We have a store!!!', this.store);
 		this.productsState$ = this.store.pipe(select('products'));
 		this.store.dispatch(ProductsActions.getProducts());
-		this.productPromiseService.getProducts()
-			.then((data: IProduct[]) => {
-				this.products = data;
-				console.log(this.products);
-				return this.products;
-			});
+		// this.productPromiseService.getProducts()
+		// 	.then((data: IProduct[]) => {
+		// 		this.products = data;
+		// 		console.log(this.products);
+		// 		return this.products;
+		// 	});
 	}
 
 	public onAddProductToCart(productId: number): void {
