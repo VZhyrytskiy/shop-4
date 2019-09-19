@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { ProductsStoreModule } from './products/products-store.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 import { environment } from './../../../environments/environment';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { environment } from './../../../environments/environment';
 				strictActionSerializability: true,
 			},
 		}),
+		EffectsModule.forRoot([]),
 		// Instrumentation must be imported after importing StoreModule (config is optional)
 		!environment.production ? StoreDevtoolsModule.instrument() : [],
 		ProductsStoreModule,
